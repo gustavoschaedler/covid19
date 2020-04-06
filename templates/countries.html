@@ -13,13 +13,6 @@
       float: left;
       font-size:40px;
     }
-    @media screen and (-webkit-min-device-pixel-ratio:0) { 
-      select,
-      textarea,
-      input {
-        font-size: 16px;
-      }
-    }
   </style>
   
   <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
@@ -59,7 +52,6 @@
               <th>✅</th>
               <th>♻️</th>
               <th>💀</th>
-              <!--th>Atualizado em</th-->
           </tr>
         </thead>
         <tbody>
@@ -68,8 +60,7 @@
               <td>{{ country['country'] }}</td>
               <td>{{ "{:,}".format(country['confirmed']) }}</td>
               <td>{{ "{:,}".format(country['recovered']) }}</td>
-              <td> {{ "{:,}".format(country['deaths']) }}</td>
-              <!--td>{{ country['updated_at'] }}</td-->
+              <td>{{ "{:,}".format(country['deaths']) }}</td>
             </tr>
           {% endfor %}
         </tbody>
