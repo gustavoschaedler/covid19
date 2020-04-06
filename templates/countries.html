@@ -36,7 +36,7 @@
       </div>
       <table id="covid19_table" class="table table-striped table-bordered" style="width:100%">
         <thead>
-          <tr style="font-size:4vh;">
+          <tr style="font-size:3vw;">
               <th>Pais</th>
               <th>✅</th>
               <th>💀</th>
@@ -46,7 +46,7 @@
         </thead>
         <tbody>
           {% for country in countries['data'] %}
-            <tr style="font-size:4vh;">
+            <tr style="font-size:3vw;">
               <td>{{ country['country'] }}</td>
               <td>{{ country['confirmed'] }}</td>
               <td> {{ country['deaths'] }}</td>
