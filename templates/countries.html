@@ -42,13 +42,15 @@
   <div class="fw-body">
     <div class="content">
       <div class="info">
-        <h1>Paises - Dados sobre COVID 19</h2>
+        <h1 valign="center">Paises - Dados sobre COVID 19</h2>
       </div>      
       <div>
-        </p>
-        <h2>✅ Confirmados: {{ total['total_confirmed'] }}</h2>
-        <h2>♻️ Recuperados: {{ total['total_recovered'] }}</h2>
-        <h2>💀 Mortos: {{ total['total_deaths'] }}</h2>
+        </br>
+        <a href="#" onclick="location.reload();"><h1>[ATUALIZAR]</h1></a>
+        </br>
+        <h1>✅ Confirmados: {{ "{:,}".format(total['total_confirmed']) }}</h1>
+        <h1>♻️ Recuperados: {{ "{:,}".format(total['total_recovered']) }}</h1>
+        <h1>💀 Mortos: {{ "{:,}".format(total['total_deaths']) }}</h1>
       </div>
       <table id="covid19_table" class="table table-striped table-bordered" style="width:100%">
         <thead>
@@ -64,9 +66,9 @@
           {% for country in countries['data'] %}
             <tr style="font-size:30px;">
               <td>{{ country['country'] }}</td>
-              <td>{{ country['confirmed'] }}</td>
-              <td>{{ country['recovered'] }}</td>
-              <td> {{ country['deaths'] }}</td>
+              <td>{{ "{:,}".format(country['confirmed']) }}</td>
+              <td>{{ "{:,}".format(country['recovered']) }}</td>
+              <td> {{ "{:,}".format(country['deaths']) }}</td>
               <!--td>{{ country['updated_at'] }}</td-->
             </tr>
           {% endfor %}
