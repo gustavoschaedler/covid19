@@ -7,6 +7,16 @@ app = flask.Flask(__name__)
 app.config["DEBUG"] = True
 
 
+def get_totals(data_cases):
+
+    total = {
+        'total_confirmed': sum(item['confirmed'] for item in data_cases['data']),
+        'total_deaths': sum(item['deaths'] for item in data_cases['data']),
+        'total_recovered': sum(item['recovered'] for item in data_cases['data'])
+    }
+    return total
+
+
 @app.route('/', methods=['GET'])
 def home():
     params = {
@@ -17,7 +27,10 @@ def home():
         params=params
     )
     result = json.loads(data.text)
-    return render_template('countries.html', countries=result)
+
+    total = get_totals(result)
+
+    return render_template('countries.html', countries=result, total=total)
     # return json.loads(data.text)
 
 
