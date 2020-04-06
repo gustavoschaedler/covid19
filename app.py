@@ -50,4 +50,5 @@ def api_id():
     return jsonify(results)
 
 
-app.run()
+if __name__ == "main":
+    app.run()
