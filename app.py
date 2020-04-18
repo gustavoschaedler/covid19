@@ -29,7 +29,7 @@ def home():
 
 @app.route('/data', methods=['GET'])
 def all_data():
-    return crawler.all_data
+    return jsonify(crawler.all_data)
 
 
 if __name__ == "main":
