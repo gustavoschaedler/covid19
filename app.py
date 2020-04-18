@@ -2,6 +2,7 @@ import flask
 from flask import jsonify, request, render_template
 import requests
 import json
+import crawler
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
@@ -18,17 +19,17 @@ def get_totals(data_cases):
 
 @app.route('/', methods=['GET'])
 def home():
-    params = {
-        'x': '1',
-    }
     data = requests.get(
-        'https://covid19-brazil-api.now.sh/api/report/v1/countries',
-        params=params
-    )
+        'https://covid19-brazil-api.now.sh/api/report/v1/countries')
     result = json.loads(data.text)
     total = get_totals(result)
 
     return render_template('countries.html', countries=result, total=total)
+
+
+@app.route('/data', methods=['GET'])
+def all_data():
+    return crawler.all_data
 
 
 if __name__ == "main":
