@@ -4,3 +4,4 @@ requests==2.23.0
 Jinja2==2.11.1
 autopep8==1.5.1
 pylint==2.4.4
+bs4==0.0.1
