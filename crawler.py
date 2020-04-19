@@ -1,11 +1,13 @@
 import requests
 from bs4 import BeautifulSoup
 import time
+import random
 
 step = 13
 all_data = {}
 
-url = 'https://www.worldometers.info/coronavirus/'
+random_number = random.random()
+url = 'https://www.worldometers.info/coronavirus/?x='+str(random_number)
 
 headers = {
     'Cache-Control': 'no-cache',
