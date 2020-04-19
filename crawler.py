@@ -7,7 +7,11 @@ all_data = {}
 
 url = 'https://www.worldometers.info/coronavirus/'
 
-res = requests.get(url).text
+headers = {
+    'Cache-Control': 'no-cache',
+    'Pragma': 'no-cache'
+}
+res = requests.get(url, headers=headers).text
 soup = BeautifulSoup(res, 'html.parser')
 soup.encode('utf-8')
 
